@@ -1,0 +1,93 @@
+        /*
+         Ejercicio 1 clase del dia 17 de Marzo
+         */
+        long inversionSocioA, inversionSocioB, inversionSocioC, totalGanancias, totalInversion, reinversionAnual, gananciaAnual;
+        final float PORCENTAJE_REINVERSION = 0.60f;
+
+        // Pedir los datos al usuario con respecto a cuanto va a invertir cada socio
+        System.out.print("Socio A - Ingrese cuanto capital desea invertir: ");
+        inversionSocioA = scanner.nextLong();
+
+        System.out.print("Socio B - Ingrese cuanto capital desea invertir: ");
+        inversionSocioB = scanner.nextLong();
+
+        System.out.print("Socio - C Ingrese cuanto capital desea invertir: ");
+        inversionSocioC = scanner.nextLong();
+
+        System.out.print("Ingrese el valor total de la ganancia anual: ");
+        totalGanancias = scanner.nextLong();
+
+        // Asegurarnos de que el monto que ingrese el usuario sea mayor a 0
+        while ((inversionSocioA <= 0) || (inversionSocioB <= 0) || (inversionSocioC <= 0) || (totalGanancias <= 0)) {
+            System.out.print("- Alguno de los montos ingresados no es valido\n" +
+                    "- Ingrese un monto valido (mayor a 0)\n");
+
+            System.out.print("Socio A - Ingrese cuanto capital desea invertir: ");
+            inversionSocioA = scanner.nextLong();
+
+            System.out.print("Socio B - Ingrese cuanto capital desea invertir: ");
+            inversionSocioB = scanner.nextLong();
+
+            System.out.print("Socio - C Ingrese cuanto capital desea invertir: ");
+            inversionSocioC = scanner.nextLong();
+
+
+            System.out.print("Ingrese el valor total de la ganancia anual: ");
+            totalGanancias = scanner.nextLong();
+
+        }
+
+        // Calcular cuanto se va a reinvertir del capital anual generado
+        reinversionAnual = (long) (totalGanancias * PORCENTAJE_REINVERSION);
+
+        // Capital total anual generado
+        gananciaAnual = totalGanancias - reinversionAnual;
+
+        totalInversion = (inversionSocioA + inversionSocioB + inversionSocioC);
+
+        // Cacular que porcentaje le corresponde a cada socio de acuerdo a su aporte
+        float porcentajeParticipacionA = (float) ((inversionSocioA * 100) / totalInversion);
+        float porcentajeParticipacionB = (float) ((inversionSocioB * 100) / totalInversion);
+        float porcentajeParticipacionC = (float) ((inversionSocioC * 100) / totalInversion);
+
+        // Calcular cuanto capital le corresponde a cada uno de los socios segun lo invertido
+        long gananciaSocioA = (long) ((gananciaAnual * (porcentajeParticipacionA / 100)) * 0.4); // El 0.4 corresponde al 40% del valor de las ganancias que va a generar
+        long gananciaSocioB = (long) (gananciaAnual * ((porcentajeParticipacionB / 100)) * 0.4);
+        long gananciaSocioC = (long) (gananciaAnual * ((porcentajeParticipacionC / 100)) * 0.4);
+
+        // Procedemos a realizar el calculo que reinvierte cada socio con respecto a su aporte inicial
+        long reinversionAnualSocioA = (long) (reinversionAnual * (porcentajeParticipacionA / 100));
+        long reinversionAnualSocioB = (long) (reinversionAnual * (porcentajeParticipacionB / 100));
+        long reinversionAnualSocioC = (long) (reinversionAnual * (porcentajeParticipacionC / 100));
+
+        // El 60% del total de lo que va a reinvertir cada socio
+        long reinversionA60 = (long) (reinversionAnualSocioA * 0.6);
+        long reinversionB60 = (long) (reinversionAnualSocioB * 0.6);
+        long reinversionC60 = (long) (reinversionAnualSocioC * 0.6);
+
+        // Averiguar el total invertido por cada socio despues de las ganancias
+        long totalInvertidoSocioA = inversionSocioA + reinversionAnualSocioA;
+        long totalInvertidoSocioB = inversionSocioB + reinversionAnualSocioB;
+        long totalInvertidoSocioC = inversionSocioC + reinversionAnualSocioC;
+
+
+        // Mostrar resultados en la consola
+        System.out.println("Monto total invertido al momento de crear la empresa: " + NumberFormat.getCurrencyInstance().format(totalInversion) + " COP");
+        System.out.println("Porcentaje de inversion de cada socio: ");
+        System.out.println("Socio A: " + porcentajeParticipacionA + "%");
+        System.out.println("Socio B: " + porcentajeParticipacionB + "%");
+        System.out.println("Socio C: " + porcentajeParticipacionC + "%");
+        System.out.println("60% de la ganancia: " + NumberFormat.getCurrencyInstance().format(reinversionAnual) + " COP");
+        System.out.println("40% de la ganancia: " + NumberFormat.getCurrencyInstance().format(gananciaAnual) + " COP");
+
+        System.out.println("60% del valor a reinvertir por el socio A " + NumberFormat.getCurrencyInstance().format(reinversionA60) + " COP");
+        System.out.println("60% del valor a reinvertir por el  socio B " + NumberFormat.getCurrencyInstance().format(reinversionB60) + " COP");
+        System.out.println("60% del valor a reinvertir por el  socio C " + NumberFormat.getCurrencyInstance().format(reinversionC60) + " COP");
+
+        System.out.println("total invertido socio A " + NumberFormat.getCurrencyInstance().format(totalInvertidoSocioA) + " COP");
+        System.out.println("total invertido socio B " + NumberFormat.getCurrencyInstance().format(totalInvertidoSocioB) + " COP");
+        System.out.println("total invertido socio C " + NumberFormat.getCurrencyInstance().format(totalInvertidoSocioC) + " COP");
+
+        System.out.println("40% del valor que la ganancia por utilidad que le corresponde al socio A " + NumberFormat.getCurrencyInstance().format(gananciaSocioA) + " COP");
+        System.out.println("40% del valor que la ganancia por utilidad que le corresponde al socio B " + NumberFormat.getCurrencyInstance().format(gananciaSocioB) + " COP");
+        System.out.println("40% del valor que la ganancia por utilidad que le corresponde al socio C " + NumberFormat.getCurrencyInstance().format(gananciaSocioC) + " COP");

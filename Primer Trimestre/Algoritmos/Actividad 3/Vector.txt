@@ -1,0 +1,56 @@
+package com.ricavs;
+
+public class Main {
+
+    public static void main(String[] args) {
+        // write your code here
+        int[] arr = {10, 5, 3, 6, 11, 50, 33, 20, 37, 43};
+        int parCount = 0, imparCount = 0;
+        double  primerPar = 0.0d, segundoPar = 0.0d, primerImpar = 0.0d;
+
+        // iterar sobre el array para saber que numeros son pares
+        for (int i = 0; i < arr.length; i++) {
+
+            if (arr[i] % 2 == 0) {
+
+                // almacenar los valores del primero y segundo numero par
+                if (parCount == 0) {
+                    primerPar = arr[i];
+                } else if (parCount == 1) {
+                    segundoPar = arr[i];
+                }
+                // llevar conteo de numeros pares y luego imprimir
+                parCount++;
+                System.out.println("Numeros pares " + arr[i]);
+
+            }
+
+        }
+
+        // iterar para saber cuales son los numeros impares
+        for (int j = 0; j < arr.length; j++) {
+
+            if (arr[j] % 2 == 1) {
+
+                // almacenar el primero numero impar en la variable
+                if (imparCount == 0) {
+                    primerImpar = arr[j];
+                }
+
+                // Llevar el conteo de los numeros impares e imprimir
+                imparCount++;
+                System.out.println("Numeros impares " + arr[j]);
+            }
+        }
+
+        double multiplicacion = segundoPar * primerImpar;
+        System.out.println("Multiplicacion del #2 Par por el #1 Impar " + multiplicacion);
+
+        if (segundoPar != 0) {
+            double division = segundoPar / primerPar;
+            System.out.println("Segundo par diferente de 0, la division del #2 par y #1 par es " + division);
+        }
+
+
+    }
+}

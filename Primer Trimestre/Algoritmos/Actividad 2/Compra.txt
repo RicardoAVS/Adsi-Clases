@@ -1,0 +1,112 @@
+package com.ricavs;
+
+import java.text.NumberFormat;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+        
+
+
+        /*
+         Ejercicio 2 clase del dia 18 Marzo
+         */
+
+        double valorCompra, valorDescuento, totalDescuentoClientes = 0d, totalPagadoClientes = 0d;
+        double sumaDescuento10 = 0.0d, sumaDescuento15 = 0.0d, sumaDescuento20 = 0.0d, sumaDescuento25 = 0.0d, sumaDescuento30 = 0.0d, sumaDescuento35 = 0.0d;
+        int contador35Porciento = 0, contador30Porciento = 0, contador25Porciento = 0, contador20Porciento = 0, contador15Porciento = 0, contador10Porciento = 0, contadorNoDescuento = 0;
+        char continuar = 'S';
+
+        // Preguntar si desea seguir ingresando datos
+        while (continuar != 'N') {
+            System.out.print("Ingrese el valor de la compra: ");
+            valorCompra = scanner.nextLong();
+
+            while (valorCompra <= 0) {
+                System.out.println("Monto invalido, el valor de la compra debe ser mayor a 0");
+                System.out.print("Ingrese el valor de la compra: ");
+                valorCompra = scanner.nextLong();
+            }
+
+            if (valorCompra > 1_000_000) {
+                valorDescuento = (valorCompra * 0.35);
+                valorCompra -= valorDescuento;
+                sumaDescuento35 += valorDescuento;
+                totalPagadoClientes += valorCompra;
+                totalDescuentoClientes += valorDescuento;
+                contador35Porciento++;
+
+            } else if (valorCompra >= 800_000) {
+                valorDescuento = (valorCompra * 0.30);
+                valorCompra -= valorDescuento;
+                sumaDescuento30 += valorDescuento;
+                totalPagadoClientes += valorCompra;
+                totalDescuentoClientes += valorDescuento;
+                contador30Porciento++;
+
+            } else if (valorCompra >= 500_000) {
+                valorDescuento = (valorCompra * 0.25);
+                valorCompra -= valorDescuento;
+                sumaDescuento25 += valorDescuento;
+                totalPagadoClientes += valorCompra;
+                totalDescuentoClientes += valorDescuento;
+                contador25Porciento++;
+
+            } else if (valorCompra >= 300_000) {
+                valorDescuento = (valorCompra * 0.20);
+                valorCompra -= valorDescuento;
+                sumaDescuento20 += valorDescuento;
+                totalPagadoClientes += valorCompra;
+                totalDescuentoClientes += valorDescuento;
+                contador20Porciento++;
+
+            } else if (valorCompra >= 100_000) {
+                valorDescuento = (valorCompra * 0.15);
+                valorCompra -= valorDescuento;
+                sumaDescuento15 += valorDescuento;
+                totalPagadoClientes += valorCompra;
+                totalDescuentoClientes += valorDescuento;
+                contador15Porciento++;
+
+            } else if (valorCompra >= 50_000) {
+                valorDescuento = (valorCompra * 0.10);
+                valorCompra -= valorDescuento;
+                sumaDescuento10 += valorDescuento;
+                totalPagadoClientes += valorCompra;
+                totalDescuentoClientes += valorDescuento;
+                contador10Porciento++;
+
+            } else {
+                totalPagadoClientes += valorCompra;
+                contadorNoDescuento++;
+
+            }
+
+            // Preguntar si se quiere seguir ingresando mas datos
+            System.out.print("Ingresar nuevos datos [S/N]? ");
+            continuar = scanner.next().charAt(0);
+        }
+
+        // Imprimir las estadisticas obtenidas
+        System.out.println("Numero de clientes sin descuento " + contadorNoDescuento);
+        System.out.println("Cantidad de clientes que obtuvieron un 35% descuento " + contador35Porciento);
+        System.out.println("Cantidad de clientes que obtuvieron un 30% descuento " + contador30Porciento);
+        System.out.println("Cantidad de clientes que obtuvieron un 25% descuento " + contador25Porciento);
+        System.out.println("Cantidad de clientes que obtuvieron un 20% descuento " + contador20Porciento);
+        System.out.println("Cantidad de clientes que obtuvieron un 15% descuento " + contador15Porciento);
+        System.out.println("Cantidad de clientes que obtuvieron un 10% descuento " + contador10Porciento);
+        System.out.println("Total descontado por el 35% " + sumaDescuento35);
+        System.out.println("Total descontado por el 30% " + sumaDescuento30);
+        System.out.println("Total descontado por el 25% " + sumaDescuento25);
+        System.out.println("Total descontado por el 20% " + sumaDescuento20);
+        System.out.println("Total descontado por el 15% " + sumaDescuento15);
+        System.out.println("Total descontado por el 10% " + sumaDescuento10);
+        System.out.println("Total descontado a todos los clientes: " + totalDescuentoClientes);
+        System.out.println("Total pagado por todos los clientes " + totalPagadoClientes);
+
+
+    }
+}
