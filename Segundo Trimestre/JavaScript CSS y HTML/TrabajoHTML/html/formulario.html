@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario</title>
+  </head>
+  <body>
+    <h1>FORMULARIOS</h1>
+    <h3>DATALIST</h3>
+    <label for="Ciudades">Ciudades:</label>
+      <input list="ciudades-colombia" />
+      <datalist id="ciudades-colombia">
+        <option value="Cartagena"></option>
+        <option value="Medellin"></option>
+        <option value="Bogota"></option>
+        <option value="Cali"></option>
+      </datalist>
+    </form>
+    
+    <hr>
+    <br>
+
+    <h3>PATTERN</h3>
+    <form action="">
+      <label for="contrasena">Contraseña:</label>
+      <input type="password" id="contrasena" name="contrasena" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$" title="una contrasena" required>
+      <button type="submit">Enviar</button>
+    </form>
+    
+    <hr>
+    <br>
+
+    <h3>PLACEHOLDER</h3>
+
+        <form action="">
+          <input type="text" name="Nombre" id="nombre" placeholder="Escriba el Nombre">
+          <br>
+          <input type="text" name="Apellido" id=apellido placeholder="Escriba el Apellido">
+          <br>
+          <input type="submit" value="Submit">
+        </form>
+        
+        <hr>
+        <br>
+
+        <h3>REQUIRED</h3>
+
+        <form action="">
+          <label for="usuario">Usuario</label>
+          <input type="text" name="usuario" id="username" required><br>
+          <input type="submit" value="Enviar">
+       </form>
+
+       <hr>
+       <br>
+
+       <h3>Actividad 2.4</h3>
+
+       <form action="">
+         <label for="Nombre">Nombre:</label>
+         <input type="text"><br>
+         <label for="email">Correo Electronico:</label>
+         <input type="email"><br>
+         <label for="url">URL:</label>
+         <input type="url" placeholder="Escriba la URL de tu pagina"><br>
+         <label for="fecha">Fecha:</label>
+         <input type="date"><br>
+         <label for="tiempo">Tiempo:</label>
+         <input type="time"><br>
+         <label for="fecha-nacimiento">Fecha y hora de nacimiento:</label>
+         <input type="datetime"><br>
+         <label for="mes">Mes:</label>
+         <input type="month"><br>
+         <label for="semana">Semana</label>
+         <input type="week"><br>
+         <label for="Numero">Numero (min -10, max 10):</label>
+         <input type="number" min="-10" max="10"><br>
+         <label for="Intervalo">Intervalo (min 0, max 10):</label>
+         <input type="range" min="0" max="10"><br>
+         <label for="Telefono">Telefono:</label>
+         <input type="tel"><br>
+         <label for="busqueda">Termino de busqueda:</label>
+         <input type="search"><br>
+         <label for="Color">Color favoito:</label>
+         <input type="color"><br>
+         <input type="submit" value="Submit"><br>
+       </form>
+       
+       <br>
+       <br>
+    <a href="index.html">Go Back</a>
+
+  </body>
+</html>
