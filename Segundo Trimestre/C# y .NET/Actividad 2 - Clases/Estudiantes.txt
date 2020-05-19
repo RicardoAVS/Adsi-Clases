@@ -1,0 +1,217 @@
+using System;
+using System.Collections.Generic;
+namespace Mybank
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Estudiante estudianteUno = new Estudiante();
+            Estudiante estudianteDos = new Estudiante();
+            Estudiante estudianteTres = new Estudiante();
+
+            int cantEstudiantes = 0;
+            int cantNotas = 0;
+
+            // Pedir al usuario que ingrese los datos de cada estudiante
+            while (cantEstudiantes < 3)
+            {
+                Console.WriteLine(" **** Datos estudiante #" + (cantEstudiantes + 1) + " ****");
+                Console.WriteLine("");
+                Console.Write("Ingrese el nombre del estudiante: ");
+                String nombre = Console.ReadLine();
+
+                Console.Write("Ingrese la edad: ");
+                int edad = int.Parse(Console.ReadLine());
+
+                if (cantEstudiantes == 0)
+                {
+
+                    estudianteUno.name = nombre;
+                    estudianteUno.edad = edad;
+
+                    Console.WriteLine("");
+                    while (cantNotas < 3)
+                    {
+
+                        Console.WriteLine("Materia #" + (cantNotas + 1));
+                        Console.Write("Nombre de la materia: ");
+                        String materia = Console.ReadLine();
+
+                        Console.Write("Ingrese la nota del estudiante: ");
+                        decimal nota = decimal.Parse(Console.ReadLine());
+
+                        estudianteUno.agregarNota(nota, materia);
+                        cantNotas++;
+
+                        Console.WriteLine("");
+                    }
+                }
+                else if (cantEstudiantes == 1)
+                {
+                    cantNotas = 0;
+
+                    estudianteDos.name = nombre;
+                    estudianteDos.edad = edad;
+
+                    Console.WriteLine("");
+                    while (cantNotas < 3)
+                    {
+
+                        Console.WriteLine("Materia #" + (cantNotas + 1));
+                        Console.Write("Ingrese el nombre de la materia: ");
+                        String materia = Console.ReadLine();
+
+                        Console.Write("Ingrese la nota del estudiante: ");
+                        decimal nota = decimal.Parse(Console.ReadLine());
+
+                        estudianteDos.agregarNota(nota, materia);
+                        cantNotas++;
+
+                        Console.WriteLine("");
+
+                    }      
+
+                }
+                else if (cantEstudiantes == 2)
+                {
+                    cantNotas = 0;
+
+                    estudianteTres.name = nombre;
+                    estudianteTres.edad = edad;
+
+                    Console.WriteLine("");
+                    while (cantNotas < 3)
+                    {
+
+                        Console.WriteLine("Materia #" + (cantNotas + 1));
+                        Console.Write("Ingrese el nombre de la materia: ");
+                        String materia = Console.ReadLine();
+
+                        Console.Write("Ingrese la nota del estudiante: ");
+                        decimal nota = decimal.Parse(Console.ReadLine());
+
+                        estudianteTres.agregarNota(nota, materia);
+                        cantNotas++;
+
+                        Console.WriteLine("");
+                    }
+                }
+
+                Console.WriteLine("");
+                cantEstudiantes++;
+
+            }
+
+            // Calculamos el promedio del estudiante, cuyo valor se almacena en la variable, utilizando el metodo de la clase Estudiante
+            decimal promEstudianteUno = estudianteUno.promedioEstudiante(estudianteUno.nota);
+            decimal promEstudianteDos = estudianteDos.promedioEstudiante(estudianteDos.nota);
+            decimal promEstudianteTres = estudianteTres.promedioEstudiante(estudianteTres.nota);
+
+            Console.WriteLine("Imprimiendo Resultados...");
+            Console.WriteLine("");
+
+            for (int i = 0; i < estudianteUno.nombreMateria.Length; i++)
+            {
+              
+                Console.WriteLine("El estudiante " + estudianteUno.name + " obtuvo una nota de " + estudianteUno.nota[i] + " puntos" + " en " + estudianteUno.nombreMateria[i]);
+
+                // Imprimir promedio del primer estudiante
+                if (i == (estudianteUno.nombreMateria.Length - 1))
+                {
+                    Console.WriteLine("");
+                    Console.WriteLine(" ** Nota promedio del estudiante " + estudianteUno.name + " es de " + promEstudianteUno + " ***");
+                }
+
+            }
+
+            // Con estos ciclos se imprimiran las materias y notas que obtuvo cada estudiante individualmente
+
+            Console.WriteLine("");
+            for (int i = 0; i < estudianteDos.nombreMateria.Length; i++)
+            {
+
+                Console.WriteLine("El estudiante " + estudianteDos.name + " obtuvo una nota de " + estudianteUno.nota[i] + " puntos" + " en " + estudianteDos.nombreMateria[i]);
+
+                // Imprimir promedio del segundo estudiante
+                if (i == (estudianteDos.nombreMateria.Length - 1))
+                {
+
+                    Console.WriteLine("");
+                    Console.WriteLine(" *** Nota promedio del estudiante " + estudianteDos.name + " es de " + promEstudianteDos + " ***");
+                }              
+            }
+
+            Console.WriteLine("");
+
+            for (int i = 0; i < estudianteTres.nombreMateria.Length; i++)
+            {
+
+                Console.WriteLine("El estudiante " + estudianteTres.name + " obtuvo una nota de " + estudianteTres.nota[i] + " puntos" + " en " + estudianteTres.nombreMateria[i]);
+
+                // Imprimir promedio del tercer estudiante
+                if (i == (estudianteTres.nombreMateria.Length - 1))
+                {
+
+                    Console.WriteLine("");
+                    Console.WriteLine(" *** Nota promedio del estudiante " + estudianteTres.name + " es de " + promEstudianteTres + "***");
+                }              
+            }
+            Console.WriteLine("");
+            // Calcular el promedio grupal de todos los alumnos
+            decimal promedioTotal = (promEstudianteUno + promEstudianteDos + promEstudianteTres) / cantEstudiantes;
+
+            Console.WriteLine(" *************************************************************");
+            Console.WriteLine(" **                                                         **");
+            Console.WriteLine(" **     El promedio de total de los estudiantes es " + promedioTotal + "       **");
+            Console.WriteLine(" **                                                         **");
+            Console.WriteLine(" *************************************************************");
+        }
+    }
+     
+        public class Estudiante
+        {
+            public String name;
+            public String[] nombreMateria;
+            public decimal[] nota;
+            public int edad;
+            private decimal promedio;
+            private int index = 0; // auxiliar para almacenar los datos en los vectores
+
+            public Estudiante()
+            {
+                name = "";
+                nombreMateria = new string[3];
+                nota = new decimal[3];
+                edad = 0;
+                promedio = 0.0m;
+            }
+
+            // Metodo para calcular el promedio de un estudiante en especifico
+            public decimal promedioEstudiante(decimal[] notas)
+            {
+                decimal suma = 0;
+
+                foreach (decimal nota in notas)
+                {
+                    suma += nota;
+                }
+                return promedio = suma / notas.Length;
+            }
+
+            // Agregar la nota y materia a dicho estudiante
+            public void agregarNota(decimal notaMateria, String materia)
+            {
+                // Solo nos permitira ingresar 3 materia y 3 notas para cada instancia de la clase
+                if (index < 3)
+                {
+                    nombreMateria[index] = materia;
+                    nota[index] = notaMateria;
+                    index += 1;
+                } else
+                {
+                    Console.WriteLine("La lista esta full");
+                }
+            }
+        }
+}
