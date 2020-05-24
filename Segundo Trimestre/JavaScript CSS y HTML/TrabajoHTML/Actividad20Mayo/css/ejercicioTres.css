@@ -1,0 +1,101 @@
+@import url(../css/ejercicioDos.css);
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.header > .div-logo {
+  text-align: start;
+  align-self: center;
+}
+
+.div-logo {
+  display: flex;
+  align-items: center;
+  min-height: 200px;
+  border: 0.1px solid rgba(70, 67, 67, 0.24);
+  padding-left: 4rem;
+  flex: 2;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: space-between;
+  flex: 2;
+}
+
+.nav-links > a {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-links {
+  border: 0.1px solid rgba(70, 67, 67, 0.24);
+  flex: 1;
+}
+
+.body {
+  color: rgba(36, 36, 36, 0.7);
+  flex: 2;
+}
+
+p {
+  padding: 40px;
+  text-align: start;
+}
+
+a {
+  color: beige;
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.footer {
+  min-height: 200px;
+  padding: 50px 90px;
+  justify-content: space-between;
+}
+
+.page-info {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 2;
+}
+ul.page-info-global > li {
+  margin-left: 0;
+}
+
+.footer-links {
+  margin-bottom: 16px;
+  display: inline-block;
+  width: 19%;
+  padding-right: 12px;
+  vertical-align: top;
+  margin-bottom: 16px;
+}
+
+.footer > .social-media > ul {
+  flex: 2;
+  display: inherit;
+}
+
+.footer > .social-media > ul > li {
+  margin: auto 50px;
+}
+
+.social-media {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+}
+
+.footer > .social-media > a {
+  color: black;
+}

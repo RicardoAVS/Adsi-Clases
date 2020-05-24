@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/Style.css" />
+  </head>
+  <body>
+    <!-- Estructura HTML. Dotan de sentido semantico-->
+    <!-- nav: navegacion. Se pueden usar varios en el mismo documento.
+      Podemos definir enlaces que hagan referencia a un menu de navegacion.-->
+    <nav>
+      <a href="">Lista A</a>
+      <a href="">Lista B</a>
+    </nav>
+
+    <!-- Header: Hacer referencia a un elemento de cabecera.
+         Pueden contener cualquier elemento html que se desee.
+         Soporta class y id -->
+    <header>
+      <h1>Esto es un H1 de Header</h1>
+      <p>Parrafo de un header</p>
+    </header>
+
+    <!-- main: engloba contenido que se destaca dentro del documento HTML.
+         cualquier elemento html que se desee. Soporta class y id. -->
+    <!-- Un solo main dentro del documento-->
+    <main>
+      <h1>Header de main</h1>
+      <p>Paragrafo de main</p>
+      <section>
+        <article>articulo del main</article>
+      </section>
+    </main>
+
+    <!-- aside: Se utiliza para las barras de widgets. cualquier elemento HTML.
+               Soporta class y id.-->
+    <aside>
+      <h1>H1 de aside</h1>
+      <p>Paragrafo de un aside</p>
+    </aside>
+
+    <!-- section: Nos ayuda a distinguir partes de nuestro documento html.
+         Pueden haber los section que se desee. Soporta class y id.
+        -**** No se pueden anidar las SECTION ****-->
+    <section>
+      <h1>H1 de un section</h1>
+      <p>Paragrafo de una section</p>
+      <ol>
+        <li>Order List first item de un section</li>
+        <li>Order List section item de un section</li>
+      </ol>
+    </section>
+
+    <!-- article: Siempre va dentro de la etiqueta <section>. Podemos aplicar
+          todos los articles que se desee siempre y cuando se encuentre dentro 
+          de un <section>. Soport class y id. cualquier elemento html que desee.
+          No se puede anidar un <article>.-->
+
+    <section>
+      <article>
+        <h1>Esto es un H1 de un article</h1>
+        <p>
+          Este article tiene que estar dentro de un Section puede ir anidado
+          siempre y cuando se encuentre dentro de un section
+        </p>
+      </article>
+    </section>
+
+    <!-- footer: Pie de pagina del documento HTML. cualquier elemento que se desee.
+          ** Se puede agregar <article> siempre y cunado este dentro de un <section> ** -->
+
+    <footer>
+      <section>
+        <article>
+          <p>
+            Esto es un paragrafo del footer que se encuentra en un article que
+            esta dentro de un section
+          </p>
+        </article>
+      </section>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+@import url(../css/general.css);
+
+/* @font-face: Sirve para definir nuestro propio tipo de letra
+    font-family: puede ser cualquier nombre 
+    src: Se especifica la ruta al archivo ttf que contiene la fuente de la letra.*/
+@font-face {
+  font-family: 'Script';
+  src: url(../fuentes/static/DancingScript-Regular.ttf);
+  font-weight: 400;
+  font-style: normal;
+}
+
+.container {
+  background-color: rgb(83, 169, 255);
+  align-items: center;
+  border-radius: 15px;
+  border: 8px solid #615c5c;
+  padding: 40px;
+  margin: 100px auto;
+  width: 300px;
+  height: 100%;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+h1 {
+  font-family: 'Script';
+  text-transform: uppercase;
+}
+
+p {
+  font-family: 'Script';
+  text-transform: lowercase;
+}
+
+/* @media: Conjunto de reglas con el objetivo de definir propiedades especificas para distintos
+   tipos de medios (dispositivos).
+   
+   Screen, print, projection, all*/
+
+@media print {
+  body {
+    font-size: 10pt;
+  }
+  .container {
+    column-count: 2;
+    border: none;
+  }
+
+  p {
+    font-family: 'Times New Roman', Times, serif;
+  }
+}

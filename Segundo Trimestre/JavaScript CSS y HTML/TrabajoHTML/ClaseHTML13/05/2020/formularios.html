@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- formulario es un conjunto  de controles (botones, cajas de texto, casillas de verificacion, botones de radio, ect...).
+         Permite al usuario introducir datos y enviarlos al servidor web para su procesamiento
+
+         Estructura semantica correcta. Puede llevar class e id-->
+
+    <form action="ejemplo.php" method="POST" class="" id="">
+      <!-- acction: Contiene el nombre del agente que procesara los datos remitidos por el seervidor (por ejemplo: un script de PHP)
+       method: Define la manera de enviar los datos al servidor. los valores posibles son:
+        GET: Los valores se a;aden a la direccion indicada en el atributo action
+        POST: Los valores se envian de forma separada.
+      
+      Los atributos a los que queremos hacer referencias dentro de un fildset. Esta etiqueta englobara cada uno de los controles.-->
+      <fieldset>
+        <legend>Formulacion de Inscripcion</legend>
+        <input type="text" />
+      </fieldset>
+      <fieldset>
+        <legend>Datos Personales</legend>
+        <input type="text" name="nombre" value="Ricardo" />
+        <br />
+        <br />
+        <input type="text" placeholder="Nombre de Usuario" />
+        <br />
+        <br />
+        <input type="password" placeholder="Password" />
+        <br />
+        <br />
+        <input type="email" placeholder="E-mail address" />
+        <br />
+        <br />
+        <input type="number" placeholder="Phone number" />
+
+        <!-- Elemento select no requiere placeholder-->
+        <br />
+        <select>
+          <option value="">Seleccione una opcion</option>
+          <option value="">Opcion 1</option>
+          <option value="">Opcion 2</option>
+          <option value="">Opcion 3</option>
+        </select>
+      </fieldset>
+      <input type="submit" value="Enviar" />
+      <!-- CONTROLES EN EL FORMULARIO 
+      
+      input: tiene varios atributos... (type: text, password, number, email).
+    
+      placeholder. muestra un texto de ayuda.-->
+    </form>
+  </body>
+</html>

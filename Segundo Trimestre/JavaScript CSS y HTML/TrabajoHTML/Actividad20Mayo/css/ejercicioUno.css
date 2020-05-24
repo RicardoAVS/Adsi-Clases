@@ -1,0 +1,54 @@
+html {
+  /* font style */
+  text-align: center;
+  color: beige;
+  font-size: x-large;
+  font-weight: 400;
+  font-family: cursive;
+}
+
+.container {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.bottom {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.bottom > div {
+  width: auto;
+  min-height: 100px;
+  flex: 1;
+  border-radius: 10px 10px 10px 10px;
+}
+
+.container > div {
+  width: auto;
+  min-height: 100px;
+  flex: 1;
+  border-radius: 10px 10px 10px 10px;
+}
+
+.one {
+  background: #50b150;
+}
+
+.two {
+  background: #54a7aa;
+}
+
+.three {
+  background: #d33838;
+}
+
+.four {
+  background: #2d41f0;
+  min-width: 50%;
+}
+
+.five {
+  background: #443344;
+  min-width: 50%;
+}
