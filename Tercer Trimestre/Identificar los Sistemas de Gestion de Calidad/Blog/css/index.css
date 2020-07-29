@@ -1,0 +1,265 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+
+* {
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+  /* font-size: 62.5%; /* 1rem = 10px, 10px/16px = 62.5% */
+  scroll-behavior: smooth;
+  font-family: 'Vidaloka', serif;
+  font-weight: 400;
+  background: #fbf9f4;
+  color: rgb(66, 74, 78);
+}
+
+a {
+  color: #d03b39;
+  text-decoration: none;
+}
+
+p {
+  font-weight: 100;
+  font-size: 1.05rem;
+}
+
+li {
+  font-weight: 100;
+  font-size: 1.05rem;
+}
+
+img {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  object-fit: cover;
+  width: 320px;
+  height: 180px;
+}
+
+.title {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 16px;
+  margin: 15px 0 0 0;
+  color: #292927;
+}
+
+/* Head of the page*/
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.activityTitle {
+  justify-content: center;
+  align-items: center;
+  font-size: 120px;
+  margin: 2% auto auto;
+  text-transform: uppercase;
+  color: #292927;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  width: 89%;
+}
+
+hr {
+  margin: 10px 0;
+  width: 82%;
+  background-color: #d03b39;
+  border: 0 none;
+  color: #d03b39;
+  height: 1px;
+}
+
+/* Main content*/
+
+.content {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 50px;
+  height: 100%;
+  width: 100%;
+}
+
+.category {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-top: 0;
+}
+
+.author {
+  margin: 20px 0 15px 0;
+}
+
+.articleTitle:hover {
+  color: #d03b39;
+}
+
+.articleTitle {
+  font-size: 2rem;
+  margin: 10px 0 0 0;
+}
+
+/*Left Content*/
+
+.leftContent {
+  width: 40%;
+}
+
+.dateContainer {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #d03b39;
+  padding-bottom: 10px;
+  margin: 40px 0;
+}
+
+.exampleContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.examplePicture {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+.date {
+  font-size: 0.8rem;
+}
+
+/* Rigth Content */
+
+.rightContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.profilePictureContainer {
+  background-size: cover;
+  max-width: 300px;
+  max-height: 214px;
+}
+
+.profilePicture {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  border-top-left-radius: 5%;
+  border-top-right-radius: 5%;
+}
+
+.aboutMe:hover {
+  color: #d03b39;
+}
+
+.personalInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: fbf9f4;
+  margin: 0 0 50px 0;
+  border-bottom: 1px solid #d03b39;
+}
+
+.aboutMe {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.divider {
+  margin: 0 10px;
+}
+
+#name {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.picture {
+  object-fit: contain;
+  min-width: 100%;
+  height: 100%;
+}
+
+#senaLogo {
+  border-radius: 50%;
+}
+
+.newsLetterContainer {
+  display: flex;
+  flex-direction: column;
+  width: 15%;
+}
+
+/* Footer */
+
+.cont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #333333;
+  width: 100%;
+  margin-top: 40px;
+}
+
+.footerContainer {
+  background: #333333;
+  width: auto;
+  min-height: 150px;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  padding: 40px 70px;
+}
+
+.footerLink {
+  width: 100%;
+  height: 100px;
+  border-right: 1px solid #fbf9f4;
+}
+
+#footer-whiteLinks {
+  color: #fbf9f4;
+}
+
+.aboutPage a {
+  margin-top: 5px;
+}
+.aboutText {
+  margin-top: 10px;
+  line-height: 20px;
+}
+.socialMedia {
+  width: 30%;
+  min-width: 200px;
+  color: #fbf9f4 !important;
+}
+.socialMedia i {
+  color: #fbf9f4;
+  font-size: 20px;
+  border-right: 1px solid #fbf9f4;
+  padding-right: 5px;
+}
+.socialMedia p {
+  margin-bottom: 20px;
+}
+.socialLink a {
+  margin-right: 10px;
+}
+
+.aboutText {
+  text-transform: none;
+}
