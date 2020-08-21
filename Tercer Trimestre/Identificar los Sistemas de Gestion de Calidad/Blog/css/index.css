@@ -45,6 +45,10 @@ img {
   color: #292927;
 }
 
+.title:hover {
+  color: #d03b39;
+}
+
 /* Head of the page*/
 .container {
   display: flex;
@@ -74,7 +78,6 @@ hr {
   width: 82%;
   background-color: #d03b39;
   border: 0 none;
-  color: #d03b39;
   height: 1px;
 }
 
@@ -97,10 +100,6 @@ hr {
 
 .author {
   margin: 20px 0 15px 0;
-}
-
-.articleTitle:hover {
-  color: #d03b39;
 }
 
 .articleTitle {
@@ -156,19 +155,18 @@ hr {
   object-fit: contain;
   width: 100%;
   height: 100%;
-  border-top-left-radius: 5%;
-  border-top-right-radius: 5%;
 }
 
-.aboutMe:hover {
-  color: #d03b39;
+.profilePicture:hover {
+  background-color: #d03b39;
+  transform: scale(1.1);
 }
 
 .personalInfo {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: fbf9f4;
+  background-color: #fbf9f4;
   margin: 0 0 50px 0;
   border-bottom: 1px solid #d03b39;
 }
@@ -176,14 +174,14 @@ hr {
 .aboutMe {
   display: flex;
   justify-content: center;
-  margin: 10px 0;
+  margin-top: 10px;
 }
 
 .divider {
-  margin: 0 10px;
+  margin: 1px 10px 0 10px;
 }
 
-#name {
+.name {
   text-align: center;
   margin-bottom: 20px;
 }
@@ -230,8 +228,11 @@ hr {
   height: 100px;
   border-right: 1px solid #fbf9f4;
 }
+.footerLink a {
+  color: white !important;
+}
 
-#footer-whiteLinks {
+.footer-whiteLinks {
   color: #fbf9f4;
 }
 

@@ -1,0 +1,5 @@
+C:\Users\RICARDO\source\repos\LibParametro\LibParametro\bin\Debug\LibParametro.dll
+C:\Users\RICARDO\source\repos\LibParametro\LibParametro\bin\Debug\LibParametro.pdb
+C:\Users\RICARDO\source\repos\LibParametro\LibParametro\obj\Debug\LibParametro.csproj.CoreCompileInputs.cache
+C:\Users\RICARDO\source\repos\LibParametro\LibParametro\obj\Debug\LibParametro.dll
+C:\Users\RICARDO\source\repos\LibParametro\LibParametro\obj\Debug\LibParametro.pdb

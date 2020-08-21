@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/formulario.css" />
+  </head>
+  <body>
+    <form class="formContainer" action="#" method="POST">
+      <div class="nombreUsuario">
+        <label for="">Nombre</label>
+        <input
+          class="inputForm nombre"
+          type="text"
+          placeholder="Escriba su nombre"
+        />
+      </div>
+      <div class="apellidoUsuario">
+        <label for="">Apellido</label>
+        <input
+          class="inputForm apellido"
+          type="text"
+          placeholder="1er Apellido"
+        />
+      </div>
+      <div class="emailUsuario">
+        <label for="">Email</label>
+        <input class="inputForm" type="text" placeholder="Ingrese su correo" />
+      </div>
+      <div class="asuntoForm">
+        <label for="">Asunto</label>
+        <input
+          class="inputForm"
+          type="text"
+          placeholder="Titulo de la consulta"
+        />
+      </div>
+      <div class="mensajeForm">
+        <label class="msjText" for="">Mensaje</label>
+        <textarea
+          type="text"
+          class="mensajeFormBox"
+          placeholder="Escribe brevemente en menos de 300 caracteres"
+        ></textarea>
+        <input
+          class="enviarForm"
+          type="submit"
+          value="Enviar Datos"
+          onclick="getName()"
+        />
+      </div>
+    </form>
+    <script src="../javascript/formulario.js"></script>
+  </body>
+</html>

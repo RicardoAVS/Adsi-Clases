@@ -1,0 +1,93 @@
+* {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+.formContainer {
+  width: 400px;
+  height: 500px;
+  padding: 20px 0 20px 0;
+  box-shadow: 5px 10px #888888;
+  background-color: tomato;
+  border-radius: 3px;
+  display: grid;
+  margin: 0 auto;
+  grid-template-areas:
+    'nombre nombre '
+    'apellido apellido '
+    'email email '
+    'asunto asunto '
+    'mensaje mensaje ';
+}
+
+input {
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
+
+.formContainer > div {
+  padding: 0;
+  margin: 0;
+  height: 30px;
+  margin: 0;
+}
+
+.nombreUsuario {
+  grid-area: nombre;
+  display: flex;
+  justify-content: space-around;
+}
+
+.apellidoUsuario {
+  grid-area: apellido;
+  display: flex;
+  justify-content: space-around;
+}
+
+.emailUsuario {
+  grid-area: email;
+  display: flex;
+  justify-content: space-around;
+}
+
+.asuntoForm {
+  grid-area: asunto;
+  display: flex;
+  justify-content: space-around;
+}
+
+.msjText {
+  padding-left: 20px;
+}
+
+.mensajeForm {
+  grid-area: mensaje;
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+}
+
+.mensajeFormBox {
+  min-height: 50px;
+  margin: 0 20px 0 20px;
+}
+.enviarForm {
+  grid-area: enviar;
+  background-color: rgb(31, 28, 28);
+  color: beige;
+  margin: 5px 20px 0 20px;
+  min-height: 30px;
+}
+
+.inputForm {
+  min-width: 250px;
+  max-width: 260px;
+  font-weight: 100;
+}

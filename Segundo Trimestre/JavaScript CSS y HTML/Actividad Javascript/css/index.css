@@ -1,0 +1,40 @@
+* {
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+  color: beige;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  min-height: 100vh;
+}
+
+div {
+  align-items: center;
+}
+
+button {
+  background-color: rgba(71, 71, 216, 0.651);
+  border: 0.3px solid rgb(45, 42, 221, 0.1);
+  border-radius: 7%;
+  width: 100px;
+  min-height: 40px;
+}
+
+.circuloCambio {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+}
+
+.cuadradoCambio {
+  height: 100px;
+  width: 100px;
+  border-radius: 0;
+}

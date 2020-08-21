@@ -1,0 +1,13 @@
+C:\Users\RICARDO\source\repos\ClienteInfoForm\ClienteInfoForm\bin\Debug\ClienteInfoForm.exe.config
+C:\Users\RICARDO\source\repos\ClienteInfoForm\ClienteInfoForm\bin\Debug\ClienteInfoForm.exe
+C:\Users\RICARDO\source\repos\ClienteInfoForm\ClienteInfoForm\bin\Debug\ClienteInfoForm.pdb
+C:\Users\RICARDO\source\repos\ClienteInfoForm\ClienteInfoForm\bin\Debug\LibParametro.dll
+C:\Users\RICARDO\source\repos\ClienteInfoForm\ClienteInfoForm\bin\Debug\LibParametro.pdb
+C:\Users\RICARDO\source\repos\ClienteInfoForm\ClienteInfoForm\obj\Debug\ClienteInfoForm.csprojAssemblyReference.cache
+C:\Users\RICARDO\source\repos\ClienteInfoForm\ClienteInfoForm\obj\Debug\ClienteInfoForm.Form1.resources
+C:\Users\RICARDO\source\repos\ClienteInfoForm\ClienteInfoForm\obj\Debug\ClienteInfoForm.Properties.Resources.resources
+C:\Users\RICARDO\source\repos\ClienteInfoForm\ClienteInfoForm\obj\Debug\ClienteInfoForm.csproj.GenerateResource.cache
+C:\Users\RICARDO\source\repos\ClienteInfoForm\ClienteInfoForm\obj\Debug\ClienteInfoForm.csproj.CoreCompileInputs.cache
+C:\Users\RICARDO\source\repos\ClienteInfoForm\ClienteInfoForm\obj\Debug\ClienteInfoForm.csproj.CopyComplete
+C:\Users\RICARDO\source\repos\ClienteInfoForm\ClienteInfoForm\obj\Debug\ClienteInfoForm.exe
+C:\Users\RICARDO\source\repos\ClienteInfoForm\ClienteInfoForm\obj\Debug\ClienteInfoForm.pdb
