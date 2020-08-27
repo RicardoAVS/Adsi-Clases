@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Resta">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="numeroUno" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="numeroDos" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RestaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RestaResult" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="suma">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="numeroUno" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="numeroDos" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="sumaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="sumaResult" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Circunferencia">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="radio" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CircunferenciaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CircunferenciaResult" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TrianguloEq">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="lado" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TrianguloEqResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TrianguloEqResult" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Rectangulo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="altura" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="baseL" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RectanguloResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RectanguloResult" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Cilindro">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="radio" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="altura" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CilindroResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CilindroResult" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="RestaSoapIn">
+    <wsdl:part name="parameters" element="tns:Resta" />
+  </wsdl:message>
+  <wsdl:message name="RestaSoapOut">
+    <wsdl:part name="parameters" element="tns:RestaResponse" />
+  </wsdl:message>
+  <wsdl:message name="sumaSoapIn">
+    <wsdl:part name="parameters" element="tns:suma" />
+  </wsdl:message>
+  <wsdl:message name="sumaSoapOut">
+    <wsdl:part name="parameters" element="tns:sumaResponse" />
+  </wsdl:message>
+  <wsdl:message name="CircunferenciaSoapIn">
+    <wsdl:part name="parameters" element="tns:Circunferencia" />
+  </wsdl:message>
+  <wsdl:message name="CircunferenciaSoapOut">
+    <wsdl:part name="parameters" element="tns:CircunferenciaResponse" />
+  </wsdl:message>
+  <wsdl:message name="TrianguloEqSoapIn">
+    <wsdl:part name="parameters" element="tns:TrianguloEq" />
+  </wsdl:message>
+  <wsdl:message name="TrianguloEqSoapOut">
+    <wsdl:part name="parameters" element="tns:TrianguloEqResponse" />
+  </wsdl:message>
+  <wsdl:message name="RectanguloSoapIn">
+    <wsdl:part name="parameters" element="tns:Rectangulo" />
+  </wsdl:message>
+  <wsdl:message name="RectanguloSoapOut">
+    <wsdl:part name="parameters" element="tns:RectanguloResponse" />
+  </wsdl:message>
+  <wsdl:message name="CilindroSoapIn">
+    <wsdl:part name="parameters" element="tns:Cilindro" />
+  </wsdl:message>
+  <wsdl:message name="CilindroSoapOut">
+    <wsdl:part name="parameters" element="tns:CilindroResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebService1Soap">
+    <wsdl:operation name="Resta">
+      <wsdl:input message="tns:RestaSoapIn" />
+      <wsdl:output message="tns:RestaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="suma">
+      <wsdl:input message="tns:sumaSoapIn" />
+      <wsdl:output message="tns:sumaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Circunferencia">
+      <wsdl:input message="tns:CircunferenciaSoapIn" />
+      <wsdl:output message="tns:CircunferenciaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TrianguloEq">
+      <wsdl:input message="tns:TrianguloEqSoapIn" />
+      <wsdl:output message="tns:TrianguloEqSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Rectangulo">
+      <wsdl:input message="tns:RectanguloSoapIn" />
+      <wsdl:output message="tns:RectanguloSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Cilindro">
+      <wsdl:input message="tns:CilindroSoapIn" />
+      <wsdl:output message="tns:CilindroSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebService1Soap" type="tns:WebService1Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Resta">
+      <soap:operation soapAction="http://tempuri.org/Resta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="suma">
+      <soap:operation soapAction="http://tempuri.org/suma" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Circunferencia">
+      <soap:operation soapAction="http://tempuri.org/Circunferencia" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TrianguloEq">
+      <soap:operation soapAction="http://tempuri.org/TrianguloEq" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Rectangulo">
+      <soap:operation soapAction="http://tempuri.org/Rectangulo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Cilindro">
+      <soap:operation soapAction="http://tempuri.org/Cilindro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebService1Soap12" type="tns:WebService1Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Resta">
+      <soap12:operation soapAction="http://tempuri.org/Resta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="suma">
+      <soap12:operation soapAction="http://tempuri.org/suma" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Circunferencia">
+      <soap12:operation soapAction="http://tempuri.org/Circunferencia" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TrianguloEq">
+      <soap12:operation soapAction="http://tempuri.org/TrianguloEq" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Rectangulo">
+      <soap12:operation soapAction="http://tempuri.org/Rectangulo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Cilindro">
+      <soap12:operation soapAction="http://tempuri.org/Cilindro" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebService1">
+    <wsdl:port name="WebService1Soap" binding="tns:WebService1Soap">
+      <soap:address location="https://localhost:44381/WebService1.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebService1Soap12" binding="tns:WebService1Soap12">
+      <soap12:address location="https://localhost:44381/WebService1.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

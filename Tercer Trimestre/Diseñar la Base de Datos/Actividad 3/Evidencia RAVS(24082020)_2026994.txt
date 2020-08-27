@@ -1,0 +1,570 @@
+libreriaapravsdb=# -- Autor: Ricardo Arturo Villada Silvestre
+libreriaapravsdb=# -- Fecha: 24/08/2020
+libreriaapravsdb=# -- Objetivo: Manipular algunas de las funciones de SQL
+libreriaapravsdb=# --           caracteres para aplicarlas a las consultas de nuestra bd
+libreriaapravsdb=# -- Documento: postgresql-12-US(A4).pdf - Capitulo 9 apartado 9.4
+libreriaapravsdb=#
+libreriaapravsdb=# -- Funcion CURRENT_DATE retorna la fecha actual
+libreriaapravsdb=# SELECT CURRENT_DATE;
+ current_date
+--------------
+ 2020-08-24
+(1 fila)
+libreriaapravsdb=# -- Insertar un nuevo pedido en la tabla pedidos_clientes
+libreriaapravsdb=# INSERT INTO pedidos_clientes (nro_pedido, id_cliente, isbn, fecha_pedido, cantidad, subtotal)
+libreriaapravsdb-# VALUES (107, 2, 372, CURRENT_DATE, 2, 96000);
+INSERT 0 1
+libreriaapravsdb=# SELECT * FROM pedidos_clientes;
+ id_pedido | nro_pedido | id_cliente | isbn | fecha_pedido | cantidad | subtotal
+-----------+------------+------------+------+--------------+----------+----------
+         1 |        100 |          1 |  372 | 2020-08-10   |        1 |    48000
+         2 |        101 |          1 |  598 | 2020-08-10   |        1 |    41700
+         4 |        104 |          3 |  119 | 2020-08-07   |        1 |    24000
+         5 |        105 |          4 | 5559 | 2020-08-06   |        1 |    41900
+         6 |        106 |          5 |  415 | 2020-08-06   |        1 |    46800
+         7 |        107 |          2 |  372 | 2020-08-24   |        2 |    96000
+         3 |        103 |          2 | 2437 | 2020-08-10   |        1 |    48000
+(7 filas)
+
+libreriaapravsdb=# SELECT * FROM pedidos_clientes;
+libreriaapravsdb=#  -- Function NOW() retorna fecha y hora actual (TIMESTAMP) marca de tiempo
+libreriaapravsdb=# SELECT NOW();
+             now
+------------------------------
+ 2020-08-24 13:07:43.88842-05
+(1 fila)
+
+
+libreriaapravsdb=# SELECT 7 * 8
+libreriaapravsdb-# ;
+ ?column?
+----------
+       56
+(1 fila)
+
+libreriaapravsdb=# -- Funcion MAX() retorna el valor  mayor de un conjunto de valores
+libreriaapravsdb=# -- Obtener el libro mas costoso
+libreriaapravsdb=# SELECT MAX(precio) FROM libros;
+libreriaapravsdb=# SELECT MAX(precio) FROM libros;
+  max
+--------
+ 203000
+(1 fila)
+
+
+libreriaapravsdb=# -- Funcion MIN() retorna el menor valor de un conjunto de valores numericos
+libreriaapravsdb=# -- Obtener el libro mas barato
+libreriaapravsdb=# SELECT MIN(precio) FROM libros;
+  min
+-------
+ 22600
+(1 fila)
+  max
+  libreriaapravsdb=# -- Funcion SUM() retorna el total de la suma de un conjunto de valores numericos
+libreriaapravsdb=# -- Obtener el precio total de los libros
+libreriaapravsdb=# SELECT SUM(precio) FROM libros;
+   sum
+---------
+ 1543000
+(1 fila)
+libreriaapravsdb=# -- Calcular el promedio de precio de un libro
+libreriaapravsdb=# SELECT SUM(precio) / COUNT(*) FROM libros;
+ ?column?
+----------
+    48218
+(1 fila)
+libreriaapravsdb=# -- Calcular el promedio de precio de un libro
+libreriaapravsdb=# SELECT SUM(precio) / COUNT(*) FROM libros;
+ ?column?
+----------
+    48218
+(1 fila)
+
+libreriaapravsdb=# -- Funcion AVG() retorna el premedio de un conjunto de valores
+libreriaapravsdb=# -- Obtener el promedio del precio de un libro
+libreriaapravsdb=# SELECT AVG(precio) FROM libros;
+        avg
+--------------------
+ 48218.750000000000
+(1 fila)
+
+libreriaapravsdb=# SELECT categoria, AVG(precio) FROM libros GROUP BY categoria;
+ categoria |        avg
+-----------+--------------------
+        11 | 49000.000000000000
+         9 | 43350.000000000000
+         5 | 67860.000000000000
+        10 | 41700.000000000000
+         6 | 49100.000000000000
+         2 | 41460.000000000000
+         7 | 37925.000000000000
+         1 | 36500.000000000000
+         8 | 56125.000000000000
+(9 filas)
+libreriaapravsdb=# -- Funcion Redondear ROUND() redondea un valor a un numero de digitos especifico
+libreriaapravsdb=# -- obtener el promedio del precio del libro con 2 cifras decimales
+libreriaapravsdb=# SELECT categoria, ROUND(AVG(precio), 2) FROM libros GROUP BY categoria;
+ categoria |  round
+-----------+----------
+        11 | 49000.00
+         9 | 43350.00
+         5 | 67860.00
+        10 | 41700.00
+         6 | 49100.00
+         2 | 41460.00
+         7 | 37925.00
+         1 | 36500.00
+         8 | 56125.00
+(9 filas)
+libreriaapravsdb=# -- Funcion de concatenacion '||' o CONCAT()
+libreriaapravsdb=# -- ||
+libreriaapravsdb=# SELECT 'Ricardo Arturo' || ' ' || 'Villada Silvestre';
+             ?column?
+----------------------------------
+ Ricardo Arturo Villada Silvestre
+(1 fila)
+libreriaapravsdb=# -- Obtener los nombres y apellido concatenados de los autores
+libreriaapravsdb=# SELECT nombres || ' ' || apellidos FROM autores;
+          ?column?
+-----------------------------
+ Marc Cerasini
+ Julio Verne
+ Edegar Alan Poe
+ Mary Wollstonecraft Shelley
+ Ben Mezrich
+ Bram Stoker
+ Bruno Nievas
+ Cesar Muñoz Garcia
+ Armando Rodera
+ Emily Bronte
+ Alejandro Dumas
+ Gabriel Garcia Marquez
+ Nikos Kazantzakis
+ Raymond Carver
+ Umberto Eco
+ Jane Austen
+(16 filas)
+
+libreriaapravsdb=# SELECT CONCAT(nombres, ' ' , apellidos) FROM autores;
+           concat
+-----------------------------
+ Marc Cerasini
+ Julio Verne
+ Edegar Alan Poe
+ Mary Wollstonecraft Shelley
+ Ben Mezrich
+ Bram Stoker
+ Bruno Nievas
+ Cesar Muñoz Garcia
+ Armando Rodera
+ Emily Bronte
+ Alejandro Dumas
+ Gabriel Garcia Marquez
+ Nikos Kazantzakis
+ Raymond Carver
+ Umberto Eco
+ Jane Austen
+(16 filas)
+
+  
+libreriaapravsdb-#-- Subconsulta
+libreriaapravsdb=# SELECT * FROM libros WHERE precio = (SELeCT MAX(precio) FROM libros);
+ isbn |    titulo     | fecha_pub  | categoria | precio | portada
+------+---------------+------------+-----------+--------+---------
+  868 | Seven Wonders | 2014-09-02 |         5 | 203000 |
+(1 fila)
+libreriaapravsdb=# SELECT titulo FROM libros WHERE precio = (SELECT MAX(precio) FROM libros);
+    titulo
+---------------
+ Seven Wonders
+(1 fila)
+libreriaapravsdb=# UPDATE pedidos_clientes SET subtotal = (SELECT (SELECT precio FROM libros WHERE isbn = pedidos_clientes.isbn) *  pedidos_clientes.cantidad)
+libreriaapravsdb-# WHERE id_pedido = 3;
+UPDATE 1
+libreriaapravsdb=# SELECT * FROM pedidos_clientes;
+ id_pedido | nro_pedido | id_cliente | isbn | fecha_pedido | cantidad | subtotal
+-----------+------------+------------+------+--------------+----------+----------
+         1 |        100 |          1 |  372 | 2020-08-10   |        1 |    48000
+         2 |        101 |          1 |  598 | 2020-08-10   |        1 |    41700
+         4 |        104 |          3 |  119 | 2020-08-07   |        1 |    24000
+         5 |        105 |          4 | 5559 | 2020-08-06   |        1 |    41900
+         6 |        106 |          5 |  415 | 2020-08-06   |        1 |    46800
+         7 |        107 |          2 |  372 | 2020-08-24   |        2 |    96000
+         3 |        103 |          2 | 2437 | 2020-08-10   |        3 |   144000
+(7 filas)
+
+libreriaapravsdb-#-- Insertar 10 autores
+libreriaapravsdb=# INSERT INTO autores (nombres, apellidos)
+libreriaapravsdb-# VALUES ('Suzzane', 'Collins'),
+libreriaapravsdb-# ('J.K', 'Rowling');
+INSERT 0 2
+libreriaapravsdb=# INSERT INTO autores (nombres, apellidos)
+libreriaapravsdb-# VALUES ('George R', 'R Martin'),
+libreriaapravsdb-# ('Stiege', 'Larsson'),
+libreriaapravsdb-# ('Robert C', 'Martin'),
+libreriaapravsdb-# ('George', 'Orwell'),
+libreriaapravsdb-# ('Paulo', 'Coelho'),
+libreriaapravsdb-# ('Alexandre', 'Dumas'),
+libreriaapravsdb-# ('Joseph', 'Heller'),
+libreriaapravsdb-# ('Victor', 'Hugo');
+INSERT 0 8
+
+libreriaapravsdb=# SELECT * FROM autores
+libreriaapravsdb-# ;
+ id_autor |   nombres   |       apellidos
+----------+-------------+------------------------
+        1 | Marc        | Cerasini
+        2 | Julio       | Verne
+        3 | Edegar Alan | Poe
+        4 | Mary        | Wollstonecraft Shelley
+        5 | Ben         | Mezrich
+        6 | Bram        | Stoker
+        7 | Bruno       | Nievas
+        8 | Cesar       | Muñoz Garcia
+        9 | Armando     | Rodera
+       10 | Emily       | Bronte
+       11 | Alejandro   | Dumas
+       12 | Gabriel     | Garcia Marquez
+       13 | Nikos       | Kazantzakis
+       14 | Raymond     | Carver
+       15 | Umberto     | Eco
+       16 | Jane        | Austen
+       17 | Suzzane     | Collins
+       18 | J.K         | Rowling
+       19 | George R    | R Martin
+       20 | Stiege      | Larsson
+       21 | Robert C    | Martin
+       22 | George      | Orwell
+       23 | Paulo       | Coelho
+       24 | Alexandre   | Dumas
+       25 | Joseph      | Heller
+       26 | Victor      | Hugo
+(26 filas)
+
+libreriaapravsdb-#-- Insertar a la tabla libros 2 libros por cada autor
+libreriaapravsdb=# INSERT INTO libros (isbn, titulo, fecha_pub, categoria, precio)
+libreriaapravsdb-# VALUES ('115', 'Hunger Games Trilogy 1', '2018-10-30', 9, 35000),
+libreriaapravsdb-#('178', 'Catching Fire', '2013-10-01', 9, 46600),
+INSERT 0 2
+libreriaapravsdb=# INSERT INTO libros (isbn, titulo, fecha_pub, categoria, precio)
+libreriaapravsdb-# VALUES ('743', 'Harry Potter and the Philosopher Stone', '2015-12-08', 10, 35000),
+libreriaapravsdb-# ('870', 'The Ickabog', '2020-11-10', 10, 96300),
+libreriaapravsdb-# ('3547', 'A Game of Thrones (A Song of Ice and Fire, Book 1)', '2010-12-23', 10, 95000),
+libreriaapravsdb-# ('8033', 'A Clash of Kings (A Song of Ice and Fire, Book 2)', '1999-02-02', 10, 61600),
+libreriaapravsdb-# ('289', 'The Girl with the Dragon Tattoo', '2010-01-01', 5, 57800),
+libreriaapravsdb-# ('6159', 'The Girl Who Played with Fire', '2010-01-01', 5, 38500),
+libreriaapravsdb-# ('0884', 'Clean Code: A Handbook of Agile Software Craftsmanship', '2008-08-11', 12, 150500),
+libreriaapravsdb-# ('4166', 'Clean Architecture: A Craftsman Guide to Software Structure and Design', '2017-09-20', 12, 61200),
+libreriaapravsdb-# ('6342', 'Animal Farm', '1996-01-01', 8, 34500),
+libreriaapravsdb-# ('3049', '1984 (Nineteen Eighty-Four)', '2013-10-01', 8, 28800),
+libreriaapravsdb-# ('2415', 'The Alchemist', '2013-10-01', 13, 42000),
+libreriaapravsdb-# ('7983', 'Warrior of the Light: A Manual', '2009-03-17', 13, 34700),
+libreriaapravsdb-# ('7443', 'The Count of Monte Cristo', '2010-08-14', 8, 77100),
+libreriaapravsdb-# ('1403', 'The Three Musketeers', '2013-12-25', 1, 57000),
+libreriaapravsdb-# ('7690', 'Catch-22: 50th Anniversary Edition', '2010-10-26', 1, 84000),
+libreriaapravsdb-# ('1258', 'God Knows', '1997-11-12', 9, 50000),
+libreriaapravsdb-# ('2751', 'Les Misérables', '2010-12-16', 8, 92500),
+libreriaapravsdb-# ('8983', 'The Man Who Laughs', '2013-07-17', 8, 111800);
+INSERT 0 18
+
+libreriaapravsdb-#-- Agregar relacion de libros por autor
+libreriaapravsdb=# INSERT INTO libre_por_autor (id, isbn)
+libreriaapravsdb-# VALUES (17, '178'),
+libreriaapravsdb-# (18, '743'),
+libreriaapravsdb-# (18, '870'),
+libreriaapravsdb-# (19, '3547'),
+libreriaapravsdb-# (19, '8033'),
+libreriaapravsdb-# (20, '289'),
+libreriaapravsdb-# (20, '6159'),
+libreriaapravsdb-# (21, '884'),
+libreriaapravsdb-# (21, '4166'),
+libreriaapravsdb-# (22, '6342'),
+libreriaapravsdb-# (22, '3049'),
+libreriaapravsdb-# (23, '2415'),
+libreriaapravsdb-# (23, '7983'),
+libreriaapravsdb-# (24, '7443'),
+libreriaapravsdb-# (24, '1403'),
+libreriaapravsdb-# (25, '7690'),
+libreriaapravsdb-# (25, '1258'),
+libreriaapravsdb-# (26, '2751'),
+libreriaapravsdb-# (26, '8983');
+INSERT 0 19
+
+libreriaapravsdb=# SELECT * FROM libros;
+ isbn |                                 titulo                                 | fecha_pub  | categoria | precio | portada
+------+------------------------------------------------------------------------+------------+-----------+--------+---------
+  372 | Operation Hell Gate                                                    | 2005-09-27 |         1 |  48000 |
+  328 | Miguel Strogoff                                                        | 2001-12-10 |         1 |  25000 |
+  468 | El Gato Negro                                                          | 1997-10-12 |         2 |  44000 |
+  385 | Sexo en la Luna                                                        | 2011-06-01 |         9 |  29500 |
+  415 | Dracula                                                                | 1999-04-10 |         2 |  46800 |
+  428 | Realidad Aumentada                                                     | 2001-03-13 |         5 |  35200 |
+  442 | Juicio Final, Sangre en el cielo                                       | 2009-05-30 |         5 |  40000 |
+  466 | El Enigma de los Vencidos                                              | 2000-11-25 |         5 |  38500 |
+  578 | Orgullo y Prejuicio                                                    | 2003-09-25 |         6 |  36100 |
+  603 | Cumbres Borrascosas                                                    | 1998-11-25 |         6 |  60800 |
+  618 | La Dama de las Camelias                                                | 1995-07-28 |         6 |  57600 |
+  729 | 100 años de soledad                                                    | 1990-04-27 |         7 |  39500 |
+  128 | Zorba, el griego                                                       | 2010-11-25 |         7 |  38500 |
+   28 | Cathedral                                                              | 2004-08-15 |         7 |  25700 |
+ 8807 | El Nombre de la Rosa                                                   | 2011-05-24 |         8 |  68000 |
+ 2437 | Cronica de una Muerte Anunciada                                        | 2016-05-15 |         7 |  48000 |
+  629 | Lucy: Ven Al Infierno                                                  | 2019-04-04 |         9 |  37500 |
+  498 | Frankenstein                                                           | 1990-03-01 |         2 |  55500 |
+  598 | Wolverine: Weapon X                                                    | 2005-11-07 |        10 |  41700 |
+  119 | Around the World in Eigthy Days                                        | 1873-01-30 |         9 |  24000 |
+  520 | The Tell-Tale Heart                                                    | 1843-01-21 |         2 |  24000 |
+    9 | Mathilda                                                               | 1843-01-21 |         8 |  45200 |
+  868 | Seven Wonders                                                          | 2014-09-02 |         5 | 203000 |
+  424 | The Lair of the white worm                                             | 2002-10-10 |         2 |  37000 |
+  805 | Holocausto Manhattan                                                   | 2015-01-01 |         5 |  22600 |
+  237 | El color de la maldad                                                  | 2017-08-22 |        11 |  49000 |
+  453 | The complete novels                                                    | 2012-01-06 |         9 |  60300 |
+ 8080 | The Black Tulip                                                        | 1850-01-01 |         8 |  59300 |
+  575 | Captain Michalis                                                       | 1983-12-01 |         9 |  52800 |
+  965 | The Island of the Day Before                                           | 2006-06-05 |         8 |  52000 |
+  513 | What We Talk About When We Talk About Love                             | 2015-05-25 |         9 |  56000 |
+ 5559 | Persuasion                                                             | 2017-08-22 |         6 |  41900 |
+  115 | Hunger Games Trilogy 1                                                 | 2018-10-30 |         9 |  35000 |
+  178 | Catching Fire                                                          | 2013-10-01 |         9 |  46600 |
+  743 | Harry Potter and the Philosopher Stone                                 | 2015-12-08 |        10 |  35000 |
+  870 | The Ickabog                                                            | 2020-11-10 |        10 |  96300 |
+ 3547 | A Game of Thrones (A Song of Ice and Fire, Book 1)                     | 2010-12-23 |        10 |  95000 |
+ 8033 | A Clash of Kings (A Song of Ice and Fire, Book 2)                      | 1999-02-02 |        10 |  61600 |
+  289 | The Girl with the Dragon Tattoo                                        | 2010-01-01 |         5 |  57800 |
+ 6159 | The Girl Who Played with Fire                                          | 2010-01-01 |         5 |  38500 |
+  884 | Clean Code: A Handbook of Agile Software Craftsmanship                 | 2008-08-11 |        12 | 150500 |
+ 4166 | Clean Architecture: A Craftsman Guide to Software Structure and Design | 2017-09-20 |        12 |  61200 |
+ 6342 | Animal Farm                                                            | 1996-01-01 |         8 |  34500 |
+ 3049 | 1984 (Nineteen Eighty-Four)                                            | 2013-10-01 |         8 |  28800 |
+ 2415 | The Alchemist                                                          | 2013-10-01 |        13 |  42000 |
+ 7983 | Warrior of the Light: A Manual                                         | 2009-03-17 |        13 |  34700 |
+ 7443 | The Count of Monte Cristo                                              | 2010-08-14 |         8 |  77100 |
+ 1403 | The Three Musketeers                                                   | 2013-12-25 |         1 |  57000 |
+ 7690 | Catch-22: 50th Anniversary Edition                                     | 2010-10-26 |         1 |  84000 |
+ 1258 | God Knows                                                              | 1997-11-12 |         9 |  50000 |
+ 2751 | Les Misérables                                                         | 2010-12-16 |         8 |  92500 |
+ 8983 | The Man Who Laughs                                                     | 2013-07-17 |         8 | 111800 |
+(52 filas)
+
+
+
+libreriaapravsdb=# -- Consultar las funciones TRIM, UPPER, LOWER, INITCAP, LIKE
+libreriaapravsdb-#-- Function TRIM 
+libreriaapravsdb=# SELECT isbn, titulo, 
+libreriaapravsdb-# TRIM(TRAILING 'e' FROM libros.titulo) -- Se remueve la letra 'e' del final de cada cadena de texto
+libreriaapravsdb-# FROM libros;
+ isbn |                                 titulo                                 |                                 rtrim
+------+------------------------------------------------------------------------+------------------------------------------------------------------------
+  372 | Operation Hell Gate                                                    | Operation Hell Gat
+  328 | Miguel Strogoff                                                        | Miguel Strogoff
+  468 | El Gato Negro                                                          | El Gato Negro
+  385 | Sexo en la Luna                                                        | Sexo en la Luna
+  415 | Dracula                                                                | Dracula
+  428 | Realidad Aumentada                                                     | Realidad Aumentada
+  442 | Juicio Final, Sangre en el cielo                                       | Juicio Final, Sangre en el cielo
+  466 | El Enigma de los Vencidos                                              | El Enigma de los Vencidos
+  578 | Orgullo y Prejuicio                                                    | Orgullo y Prejuicio
+  603 | Cumbres Borrascosas                                                    | Cumbres Borrascosas
+  618 | La Dama de las Camelias                                                | La Dama de las Camelias
+  729 | 100 años de soledad                                                    | 100 años de soledad
+  128 | Zorba, el griego                                                       | Zorba, el griego
+   28 | Cathedral                                                              | Cathedral
+ 8807 | El Nombre de la Rosa                                                   | El Nombre de la Rosa
+ 2437 | Cronica de una Muerte Anunciada                                        | Cronica de una Muerte Anunciada
+  629 | Lucy: Ven Al Infierno                                                  | Lucy: Ven Al Infierno
+  498 | Frankenstein                                                           | Frankenstein
+  598 | Wolverine: Weapon X                                                    | Wolverine: Weapon X
+  119 | Around the World in Eigthy Days                                        | Around the World in Eigthy Days
+  520 | The Tell-Tale Heart                                                    | The Tell-Tale Heart
+    9 | Mathilda                                                               | Mathilda
+  868 | Seven Wonders                                                          | Seven Wonders
+  424 | The Lair of the white worm                                             | The Lair of the white worm
+  805 | Holocausto Manhattan                                                   | Holocausto Manhattan
+  237 | El color de la maldad                                                  | El color de la maldad
+  453 | The complete novels                                                    | The complete novels
+ 8080 | The Black Tulip                                                        | The Black Tulip
+  575 | Captain Michalis                                                       | Captain Michalis
+  965 | The Island of the Day Before                                           | The Island of the Day Befor
+  513 | What We Talk About When We Talk About Love                             | What We Talk About When We Talk About Lov
+ 5559 | Persuasion                                                             | Persuasion
+  115 | Hunger Games Trilogy 1                                                 | Hunger Games Trilogy 1
+  178 | Catching Fire                                                          | Catching Fir
+  743 | Harry Potter and the Philosopher Stone                                 | Harry Potter and the Philosopher Ston
+  870 | The Ickabog                                                            | The Ickabog
+ 3547 | A Game of Thrones (A Song of Ice and Fire, Book 1)                     | A Game of Thrones (A Song of Ice and Fire, Book 1)
+ 8033 | A Clash of Kings (A Song of Ice and Fire, Book 2)                      | A Clash of Kings (A Song of Ice and Fire, Book 2)
+  289 | The Girl with the Dragon Tattoo                                        | The Girl with the Dragon Tattoo
+ 6159 | The Girl Who Played with Fire                                          | The Girl Who Played with Fir
+  884 | Clean Code: A Handbook of Agile Software Craftsmanship                 | Clean Code: A Handbook of Agile Software Craftsmanship
+ 4166 | Clean Architecture: A Craftsman Guide to Software Structure and Design | Clean Architecture: A Craftsman Guide to Software Structure and Design
+ 6342 | Animal Farm                                                            | Animal Farm
+ 3049 | 1984 (Nineteen Eighty-Four)                                            | 1984 (Nineteen Eighty-Four)
+ 2415 | The Alchemist                                                          | The Alchemist
+ 7983 | Warrior of the Light: A Manual                                         | Warrior of the Light: A Manual
+ 7443 | The Count of Monte Cristo                                              | The Count of Monte Cristo
+ 1403 | The Three Musketeers                                                   | The Three Musketeers
+ 7690 | Catch-22: 50th Anniversary Edition                                     | Catch-22: 50th Anniversary Edition
+ 1258 | God Knows                                                              | God Knows
+ 2751 | Les Misérables                                                         | Les Misérables
+ 8983 | The Man Who Laughs                                                     | The Man Who Laughs
+(52 filas)
+
+
+libreriaapravsdb=# SELECT * FROM libre_por_autor;
+ id | isbn
+----+------
+  1 |  372
+  2 |  328
+  3 |  468
+  4 |  498
+  5 |  385
+  6 |  415
+  8 |  442
+  9 |  466
+ 16 |  578
+ 10 |  603
+ 11 |  618
+ 12 |  729
+ 13 |  128
+ 14 |   28
+ 15 | 8807
+ 12 | 2437
+  1 |  598
+  2 |  119
+  3 |  520
+  4 |    9
+  5 |  868
+  6 |  424
+  7 |  428
+  7 |  805
+  8 |  805
+  9 |  237
+ 10 |  453
+ 11 | 8080
+ 13 |  575
+ 14 |  513
+ 15 |  965
+ 16 | 5559
+ 17 |  115
+ 17 |  178
+ 18 |  743
+ 18 |  870
+ 19 | 3547
+ 19 | 8033
+ 20 |  289
+ 20 | 6159
+ 21 |  884
+ 21 | 4166
+ 22 | 6342
+ 22 | 3049
+ 23 | 2415
+ 23 | 7983
+ 24 | 7443
+ 24 | 1403
+ 25 | 7690
+ 25 | 1258
+ 26 | 2751
+ 26 | 8983
+(52 filas)
+
+libreriaapravsdb-#-- Funcion UPPER() convierte toda la cadena de texto a Mayuscula
+libreriaapravsdb=# SELECT UPPER(nombres), UPPER(apellidos) FROM autores;
+    upper    |         upper
+-------------+------------------------
+ MARC        | CERASINI
+ JULIO       | VERNE
+ EDEGAR ALAN | POE
+ MARY        | WOLLSTONECRAFT SHELLEY
+ BEN         | MEZRICH
+ BRAM        | STOKER
+ BRUNO       | NIEVAS
+ CESAR       | MUñOZ GARCIA
+ ARMANDO     | RODERA
+ EMILY       | BRONTE
+ ALEJANDRO   | DUMAS
+ GABRIEL     | GARCIA MARQUEZ
+ NIKOS       | KAZANTZAKIS
+ RAYMOND     | CARVER
+ UMBERTO     | ECO
+ JANE        | AUSTEN
+ SUZZANE     | COLLINS
+ J.K         | ROWLING
+ GEORGE R    | R MARTIN
+ STIEGE      | LARSSON
+ ROBERT C    | MARTIN
+ GEORGE      | ORWELL
+ PAULO       | COELHO
+ ALEXANDRE   | DUMAS
+ JOSEPH      | HELLER
+ VICTOR      | HUGO
+(26 filas)
+
+libreriaapravsdb-#-- Funcion LOWER() retorna la cadena de texto como Minuscula
+libreriaapravsdb=# SELECT isbn, LOWER(titulo) FROM libros WHERE isbn > 800;
+ isbn |                                 lower
+------+------------------------------------------------------------------------
+ 8807 | el nombre de la rosa
+ 2437 | cronica de una muerte anunciada
+  868 | seven wonders
+  805 | holocausto manhattan
+ 8080 | the black tulip
+  965 | the island of the day before
+ 5559 | persuasion
+  870 | the ickabog
+ 3547 | a game of thrones (a song of ice and fire, book 1)
+ 8033 | a clash of kings (a song of ice and fire, book 2)
+ 6159 | the girl who played with fire
+  884 | clean code: a handbook of agile software craftsmanship
+ 4166 | clean architecture: a craftsman guide to software structure and design
+ 6342 | animal farm
+ 3049 | 1984 (nineteen eighty-four)
+ 2415 | the alchemist
+ 7983 | warrior of the light: a manual
+ 7443 | the count of monte cristo
+ 1403 | the three musketeers
+ 7690 | catch-22: 50th anniversary edition
+ 1258 | god knows
+ 2751 | les misérables
+ 8983 | the man who laughs
+(23 filas)
+
+libreriaapravsdb-#-- Funcion INITCAP() retorna como Mayuscula la primera letra del string
+libreriaapravsdb=# SELECT INITCAP(nombres), INITCAP(apellidos) FROM autores;
+   initcap   |        initcap
+-------------+------------------------
+ Marc        | Cerasini
+ Julio       | Verne
+ Edegar Alan | Poe
+ Mary        | Wollstonecraft Shelley
+ Ben         | Mezrich
+ Bram        | Stoker
+ Bruno       | Nievas
+ Cesar       | MuñOz Garcia
+ Armando     | Rodera
+ Emily       | Bronte
+ Alejandro   | Dumas
+ Gabriel     | Garcia Marquez
+ Nikos       | Kazantzakis
+ Raymond     | Carver
+ Umberto     | Eco
+ Jane        | Austen
+ Suzzane     | Collins
+ J.K         | Rowling
+ George R    | R Martin
+ Stiege      | Larsson
+ Robert C    | Martin
+ George      | Orwell
+ Paulo       | Coelho
+ Alexandre   | Dumas
+ Joseph      | Heller
+ Victor      | Hugo
+(26 filas)
+
+libreriaapravsdb-#-- Funcion LIKE() retorna un string que contenga la palabra especificada dentro del parametro '%palabra'
+libreriaapravsdb=# SELECT * FROM autores WHERE nombres LIKE 'Geor%';
+ id_autor | nombres  | apellidos
+----------+----------+-----------
+       19 | George R | R Martin
+       22 | George   | Orwell
+(2 filas)

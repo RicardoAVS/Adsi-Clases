@@ -1,0 +1,6 @@
+C:\Users\RICARDO\source\repos\Op_Framework\Op_Framework\bin\Debug\Op_Framework.dll
+C:\Users\RICARDO\source\repos\Op_Framework\Op_Framework\bin\Debug\Op_Framework.pdb
+C:\Users\RICARDO\source\repos\Op_Framework\Op_Framework\obj\Debug\Op_Framework.csprojAssemblyReference.cache
+C:\Users\RICARDO\source\repos\Op_Framework\Op_Framework\obj\Debug\Op_Framework.csproj.CoreCompileInputs.cache
+C:\Users\RICARDO\source\repos\Op_Framework\Op_Framework\obj\Debug\Op_Framework.dll
+C:\Users\RICARDO\source\repos\Op_Framework\Op_Framework\obj\Debug\Op_Framework.pdb
